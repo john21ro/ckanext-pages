@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block breadcrumb_content %}
-<li>{% link_for _('Blog'), controller='ckanext.pages.controller:PagesController', action='blog_index', named_route='blog_index' %}</li>
+<li><a href="/blog">{{ _('Blog') }}</a></li>
 <li class="active"><a href="">{{ c.page.title }}</a></li>
 {% endblock %}
 
