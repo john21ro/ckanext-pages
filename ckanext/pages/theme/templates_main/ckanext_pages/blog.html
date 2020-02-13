@@ -2,6 +2,15 @@
 {% block bodytag %}{{ super() }} class="blog"{% endblock %}
 {% block subtitle %}{{ c.page.title }}{% endblock %}
 
+{% block breadcrumb_content %}
+<li class="active"><a href="">{{ c.page.title }}</a></li>
+{% endblock %}
+
+{% block breadcrumb_content %}
+<li>{% link_for _('Blog'), controller='ckanext.pages.controller:PagesController', action='blog_index', named_route='blog_index' %}</li>
+<li class="active"><a href="">{{ c.page.title }}</a></li>
+{% endblock %}
+
 {{ c.page.title }}
 
 {% block primary_content %}
