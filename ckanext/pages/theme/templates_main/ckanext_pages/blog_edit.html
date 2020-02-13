@@ -3,11 +3,11 @@
 {% block subtitle %}{{ _('Edit Article')}} {% endblock %}
 
 {% block breadcrumb_content %}
-<li><a href="/blog/">Blog</a></li>
+<li><a href="{{ h.url_for('blog_index') }}" title="{{ _('Blog') }}"></li>
 <li class="active"><a href="">{{ c.page.title }}</a></li>
 {% endblock %}
 
 {% block primary_content_inner %}
-  {% snippet 'ckanext_pages/base_form.html', page=page, data=data, errors=errors, type='blog'%}
+    {% snippet 'ckanext_pages/base_form.html', page=page, data=data, errors=errors, type='blog'%}
 {% endblock %}
 
