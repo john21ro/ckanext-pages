@@ -26,53 +26,52 @@
       {% else %}
         {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action='pages_show', page='/' + page.name) %}
       {% endif %}
-      <div class="row page-list-item dataset-item">
-      {% if page.image %}
-        <div class="span3 image">
-          <a style="background-image:url({{ page.image }})" href="{{ url }}">
-          </a>
-        </div>
-        <div class="span8">
-           <h3 class="dataset-heading">
-              <a href="{{ url }}" >{{ page.title }}</a>
-              {% if page.publish_date %}
-                 <small class="date"> {{ h.render_datetime(page.publish_date) }} </small> | <small><i>Last modified: {{ h.render_datetime(page.modified) }}</i></small>
-              {% endif %}
-            </h3>
-            {% if page.content %}
-              {% if editor %}
-              <div>
-                {{page.content|striptags|truncate}}
-              </div>
-              {% else %}
-                {{ h.markdown_extract(page.content) }}
-              {% endif %}
-            {% else %}
-              <p class="empty">{{ _('This page currently has no content') }}</p>
-            {% endif %}
-        </div>
-      {% else %}
-        <div class="span11">
-          <h3 class="dataset-heading">
-            <a href="{{ url }}" >{{ page.title }}</a>
-            {% if page.publish_date %}
-               <small class="date"> {{ h.render_datetime(page.publish_date) }} </small>
-            {% endif %}
-          </h3>
-          {% if page.content %}
-            {% if editor %}
-            <div>
-              {{page.content|striptags|truncate}}
+        <div class="blog-post-item blog-post-item-inverse">
+            {% if page.image %}
+
+            <div class="blog-item-small-image">
+                <!-- OWL SLIDER -->
+                <div class="owl-carousel">
+                    <div>
+                        <img class="img-responsive" src="{{ page.image }}" alt="">
+                    </div>
+                </div>
+                <!-- /OWL SLIDER -->
             </div>
-            {% else %}
-              {{ h.markdown_extract(page.content) }}
             {% endif %}
-          {% else %}
-            <p class="empty">{{ _('This page currently has no content') }}</p>
-          {% endif %}
+
+            <div class="blog-item-small-content">
+            
+                <h2><a href="{{ url }}">{{ page.title | upper }}</a></h2>
+            
+                <ul class="blog-post-info list-inline">
+                    {% if page.publish_date %}
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-clock-o"></i>
+                            <span class="font-lato">{{ h.render_datetime(page.publish_date) }}</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+                {% if page.content %}
+                {% if editor %}
+                <p>
+                    {{page.content|striptags|truncate}}
+                </p>
+                {% else %}
+                {{ h.markdown_extract(page.content) }}
+                {% endif %}
+                {% else %}
+                <p>{{ _('This page currently has no content') }}</p>
+                {% endif %}
+                <a href="{{ url }}" class="btn btn-reveal btn-default">
+                    <i class="fa fa-plus"></i>
+                    <span>Read More</span>
+                </a>
+            
+            </div>
         </div>
-      {% endif %}
-      </div>
     {% endfor %}
 
 {% else %}
