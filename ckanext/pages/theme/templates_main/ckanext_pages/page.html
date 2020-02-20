@@ -20,6 +20,47 @@
     <h1 class="page-heading">{{ c.page.title }}</h1>
     {% if c.page.content %}
       <div class="ckanext-pages-content">
+        <!-- SHARE POST -->
+        <div class="clearfix margin-top-30">
+        
+          <span class="pull-left margin-top-6 bold hidden-xs">
+            Share Post:
+          </span>
+        
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_for(request.endpoint) }}"
+            class="social-icon social-icon-sm social-icon-transparent social-facebook pull-right" data-toggle="tooltip"
+            data-placement="top" title="Facebook">
+            <i class="icon-facebook"></i>
+            <i class="icon-facebook"></i>
+          </a>
+        
+          <a href="#" class="social-icon social-icon-sm social-icon-transparent social-twitter pull-right" data-toggle="tooltip"
+            data-placement="top" title="Twitter">
+            <i class="icon-twitter"></i>
+            <i class="icon-twitter"></i>
+          </a>
+        
+          <a href="#" class="social-icon social-icon-sm social-icon-transparent social-gplus pull-right" data-toggle="tooltip"
+            data-placement="top" title="Google plus">
+            <i class="icon-gplus"></i>
+            <i class="icon-gplus"></i>
+          </a>
+        
+          <a href="#" class="social-icon social-icon-sm social-icon-transparent social-linkedin pull-right"
+            data-toggle="tooltip" data-placement="top" title="Linkedin">
+            <i class="icon-linkedin"></i>
+            <i class="icon-linkedin"></i>
+          </a>
+        
+          <a href="mailto:name@domain.com?subject={{ url_for(request.endpoint) }}"
+            class="social-icon social-icon-sm social-icon-transparent social-call pull-right" data-toggle="tooltip"
+            data-placement="top" title="Email">
+            <i class="icon-email3"></i>
+            <i class="icon-email3"></i>
+          </a>
+        
+        </div>
+        <!-- /SHARE POST -->
         <% block share %>
         {% snippet 'snippets/share.html' %}
         {% endblock %}
