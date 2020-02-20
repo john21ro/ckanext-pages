@@ -27,7 +27,7 @@
             Share Post:
           </span>
         
-          <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_for(request.endpoint) }}"
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ h.url_for('home.index') }}"
             class="social-icon social-icon-sm social-icon-transparent social-facebook pull-right" data-toggle="tooltip"
             data-placement="top" title="Facebook">
             <i class="icon-facebook"></i>
@@ -52,7 +52,7 @@
             <i class="icon-linkedin"></i>
           </a>
         
-          <a href="mailto:name@domain.com?subject={{ url_for(request.endpoint) }}"
+          <a href="mailto:name@domain.com?subject={{ h.url_for(request.endpoint) }}"
             class="social-icon social-icon-sm social-icon-transparent social-call pull-right" data-toggle="tooltip"
             data-placement="top" title="Email">
             <i class="icon-email3"></i>
