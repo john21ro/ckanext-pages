@@ -61,9 +61,6 @@
         
         </div>
         <!-- /SHARE POST -->
-        <% block share %>
-        {% snippet 'snippets/share.html' %}
-        {% endblock %}
         {% set editor = h.get_wysiwyg_editor() %}
         <!-- editor set to "{{ editor }}"-->
         {% if editor %}
