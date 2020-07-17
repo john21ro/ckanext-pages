@@ -78,7 +78,9 @@ def render_content(content):
 
 
 def get_wysiwyg_editor():
-    return config.get('ckanext.pages.editor', '')
+    # return config.get('ckanext.pages.editor', '')
+    # default ckeditor
+    return config.get('ckanext.pages.editor', 'ckeditor')
 
 
 def get_recent_blog_posts(number=5, exclude=None):

@@ -85,7 +85,7 @@
   {% endif %}
 
   {% set editor = h.get_wysiwyg_editor() %}
-  editor set to "{{ editor }}"
+  <!-- editor set to "{{ editor }}" -->
   {% if editor == 'medium' %}
     {{ wysiwyg.editor('content', id='field-content', label=_('Content'), placeholder=_('Enter content here'), value=data.content|safe, error=errors.content) }}
   {% elif editor == 'ckeditor' %}
